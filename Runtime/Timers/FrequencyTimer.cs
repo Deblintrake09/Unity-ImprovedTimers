@@ -33,6 +33,20 @@ namespace ImprovedTimers
             }
         }
 
+        public override void Tick(float deltaTime) 
+        {
+            if (IsRunning && CurrentTime >= timeThreshold)
+            {
+                CurrentTime -= timeThreshold;
+                OnTick.Invoke();
+            }
+
+            if (IsRunning && CurrentTime < timeThreshold)
+            {
+                CurrentTime += deltaTime;
+            }
+        }
+
         public override bool IsFinished => !IsRunning;
 
         public override void Reset()

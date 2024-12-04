@@ -42,6 +42,7 @@ namespace ImprovedTimers
         }
 
         public abstract void Tick();
+        public abstract void Tick(float deltaTime);
         public abstract bool IsFinished { get; }
 
         public void Resume() => IsRunning = true;

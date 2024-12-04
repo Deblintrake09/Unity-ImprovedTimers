@@ -22,6 +22,19 @@ namespace ImprovedTimers
             }
         }
 
+        public override void Tick(float deltaTime)
+        {
+            if (IsRunning && CurrentTime > 0)
+            {
+                CurrentTime -= deltaTime;
+            }
+
+            if (IsRunning && CurrentTime <= 0)
+            {
+                Stop();
+            }
+        }
+
         public override bool IsFinished => CurrentTime <= 0;
     }
 }

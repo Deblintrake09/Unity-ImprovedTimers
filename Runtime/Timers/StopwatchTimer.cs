@@ -17,6 +17,14 @@ namespace ImprovedTimers
             }
         }
 
+        public override void Tick(float deltaTime)
+        {
+            if (IsRunning)
+            {
+                CurrentTime += deltaTime;
+            }
+        }
+
         public override bool IsFinished => false;
     }
 }
